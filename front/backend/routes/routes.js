@@ -12,11 +12,12 @@ router.post("/signup", (req, res) => {
     password: req.body.password,
   });
   signedUpUser
-    .save()
+    .save() //update signedUpUser. returns a promise.
     .then((data) => {
+      //if save succeeds, then res.json the new signedUpUser (data is the new saved doc)
       res.json(data);
     })
-    .catch((error) => {
+    .catch((error) => { //if save fails, res.json error
       res.json(error);
     });
 });
