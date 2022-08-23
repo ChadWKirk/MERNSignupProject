@@ -1,7 +1,6 @@
 const express = require("express");
 const router = express.Router();
 const signupTemplateCopy = require(".../models/signupmodels");
-const { request } = require("express");
 
 router.post("/signup", (req, res) => {
   const signedUpUser = new signupTemplateCopy({
@@ -17,7 +16,8 @@ router.post("/signup", (req, res) => {
       //if save succeeds, then res.json the new signedUpUser (data is the new saved doc)
       res.json(data);
     })
-    .catch((error) => { //if save fails, res.json error
+    .catch((error) => {
+      //if save fails, res.json error
       res.json(error);
     });
 });
